@@ -20,7 +20,7 @@ public class LoginPage extends BasePage{
     WebElement loginButton;
 
     public ProfilePage login(String name, String pwd) {
-        type(userName,name);
+        typeWithJSExecutor(userName,name,0,300);
         type(password,pwd);
         click(loginButton);
         return new ProfilePage(driver);
