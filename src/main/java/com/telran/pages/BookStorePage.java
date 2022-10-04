@@ -4,9 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.Collection;
-
-public class BookStorePage extends BasePage{
+public class BookStorePage extends BasePage {
 
     public BookStorePage(WebDriver driver) {
         super(driver);
@@ -24,7 +22,7 @@ public class BookStorePage extends BasePage{
     WebElement searchInput;
 
     public BookStorePage typeInSearchBookInput(String bookName) {
-        type(searchInput,bookName);
+        type(searchInput, bookName);
         return this;
     }
 
@@ -34,4 +32,19 @@ public class BookStorePage extends BasePage{
     public String takeNameOfBook() {
         return nameOfBook.getText();
     }
+
+    public BookStorePage clickOnBookTitleLink() {
+        click(nameOfBook);
+        return this;
+    }
+
+    @FindBy(css = ".text-right.fullButton")
+    WebElement addToCollectionButton;
+
+    public BookStorePage clickOnAddBookButton() {
+        clickWithJSExecutor(addToCollectionButton, 0, 500);
+        pause(500);
+        return this;
+    }
+
 }

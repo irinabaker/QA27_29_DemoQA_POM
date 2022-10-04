@@ -54,4 +54,16 @@ public class BasePage {
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
         element.click();
     }
+
+    public void acceptAlert() {
+        driver.switchTo().alert().accept();
+    }
+
+    public void pause(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
