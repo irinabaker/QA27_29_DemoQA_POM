@@ -1,13 +1,14 @@
-package com.telran.tests;
+package com.telran.tests.alertsWindows;
 
-import com.telran.pages.AlertsPage;
+import com.telran.pages.alertsWindows.AlertsPage;
 import com.telran.pages.HomePage;
 import com.telran.pages.SidePanelPage;
+import com.telran.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AlertTests extends TestBase{
+public class AlertTests extends TestBase {
 
     @BeforeMethod
     public void ensurePrecondition() {
