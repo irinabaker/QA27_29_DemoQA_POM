@@ -18,8 +18,8 @@ public class PracticeFormTests extends TestBase {
 
     @Test
     public void createNewStudentTest() {
-//        new PracticeFormPage(driver).enterPersonalData(StudentData.FIRST_NAME,StudentData.LAST_NAME,StudentData.EMAIL,
-//                StudentData.TEL_NUM,StudentData.ADDRESS);
+        new PracticeFormPage(driver).enterPersonalData(StudentData.FIRST_NAME,StudentData.LAST_NAME,StudentData.EMAIL,
+               StudentData.TEL_NUM,StudentData.ADDRESS);
         new PracticeFormPage(driver).selectGender(StudentData.GENDER)
                 .typeOfDate(StudentData.DATE)
                 .addSubject(StudentData.SUBJECTS)

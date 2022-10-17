@@ -93,4 +93,28 @@ public class PracticeFormPage extends BasePage {
         uploadPicture.sendKeys(photoPath);
         return this;
     }
+
+    @FindBy(id = "firstName")
+    WebElement fName;
+
+    @FindBy(id = "lastName")
+    WebElement lName;
+
+    @FindBy(id = "userEmail")
+    WebElement userEmail;
+
+    @FindBy(id = "userNumber")
+    WebElement userNumber;
+
+    @FindBy(id = "currentAddress")
+    WebElement currentAddress;
+
+    public PracticeFormPage enterPersonalData(String firstName, String lastName, String email, String telNum, String address) {
+        type(fName,firstName);
+        type(lName,lastName);
+        type(userEmail,email);
+       typeWithJSExecutor(userNumber,telNum,0,100);
+        typeWithJSExecutor(currentAddress,address,0,300);
+        return this;
+    }
 }
