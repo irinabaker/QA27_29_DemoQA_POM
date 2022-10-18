@@ -1,10 +1,12 @@
 package com.telran.pages.forms;
 
 import com.telran.pages.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class PracticeFormPage extends BasePage {
 
@@ -115,6 +117,82 @@ public class PracticeFormPage extends BasePage {
         type(userEmail,email);
        typeWithJSExecutor(userNumber,telNum,0,100);
         typeWithJSExecutor(currentAddress,address,0,300);
+        return this;
+    }
+
+    public PracticeFormPage hideIframes() {
+        hideAd();
+        hideFooter();
+        return this;
+    }
+
+    @FindBy(id = "state")
+    WebElement idState;
+
+    @FindBy(id = "react-select-3-input")
+    WebElement state;
+
+    @FindBy(id = "city")
+    WebElement idCity;
+
+    @FindBy(id = "react-select-4-input")
+    WebElement city;
+
+    public PracticeFormPage enterState(String st) {
+        click(idState);
+        state.sendKeys(st);
+        state.sendKeys(Keys.ENTER);
+        return this;
+    }
+
+    public PracticeFormPage enterCity(String c) {
+        click(idCity);
+        city.sendKeys(c);
+        city.sendKeys(Keys.ENTER);
+        return this;
+    }
+
+    @FindBy(id = "submit")
+    WebElement submit;
+
+    public PracticeFormPage submit() {
+        clickWithRectangle(submit,2,3);
+        return this;
+    }
+
+    @FindBy(id = "example-modal-sizes-title-lg")
+    WebElement title;
+
+
+    public String getModalTitle() {
+        return title.getText();
+    }
+
+    @FindBy(id = "closeLargeModal")
+    WebElement close;
+
+    public PracticeFormPage closeModalDialog() {
+        closeBanner();
+        clickWithJSExecutor(close,0,700);
+        return this;
+    }
+
+    @FindBy(css = ".react-datepicker__month-select")
+    WebElement month;
+
+    @FindBy(css =  ".react-datepicker__year-select")
+    WebElement year;
+
+    public PracticeFormPage chooseDate(String m, String y, String day) {
+        click(dateOfBirthInput);
+        //HTML <select> tag
+        Select select = new Select(month);
+        select.selectByVisibleText(m);
+
+        Select select1 = new Select(year);
+        select1.selectByVisibleText(y);
+
+        driver.findElement(By.xpath("//div[@class='react-datepicker__week']//div[.='" + day + "']")).click();
         return this;
     }
 }

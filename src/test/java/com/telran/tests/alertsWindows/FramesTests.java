@@ -4,6 +4,7 @@ import com.telran.pages.HomePage;
 import com.telran.pages.SidePanelPage;
 import com.telran.pages.alertsWindows.FramesPage;
 import com.telran.tests.TestBase;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,7 +23,9 @@ public class FramesTests extends TestBase {
 
     @Test
     public void switchToFrameByIndexTest() {
+
         new FramesPage(driver).switchToFrameByIndex(1);
+        Assert.assertTrue(new FramesPage(driver).isFrameTextPresent().contains("page"));
     }
 
     @Test

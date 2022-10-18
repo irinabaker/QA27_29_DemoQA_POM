@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Collection;
 import java.util.List;
 
 public class FramesPage extends BasePage {
@@ -33,13 +34,20 @@ public class FramesPage extends BasePage {
     public FramesPage switchToFrameByIndex(int index) {
         //switch to index
         driver.switchTo().frame(index);
+        body.getText();
+        System.out.println(body.getText());
         return this;
     }
+
+    @FindBy (tagName = "body")
+    WebElement body;
 
     public FramesPage switchToFrameById() {
         //swicth to frame by ID
         driver.switchTo().frame(frame1);
-        driver.switchTo().defaultContent();
+        body.getText();
+        System.out.println(body.getText());
+   //     driver.switchTo().defaultContent();
         return this;
     }
 
@@ -54,4 +62,10 @@ public class FramesPage extends BasePage {
         return this;
     }
 
+    @FindBy(tagName = "h1")
+    WebElement textOfFrame;
+
+    public String isFrameTextPresent() {
+        return textOfFrame.getText();
+    }
 }

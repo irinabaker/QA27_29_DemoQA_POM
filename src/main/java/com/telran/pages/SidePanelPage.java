@@ -7,6 +7,7 @@ import com.telran.pages.alertsWindows.NestedFramesPage;
 import com.telran.pages.bookstore.ProfilePage;
 import com.telran.pages.elements.ButtonsPage;
 import com.telran.pages.forms.PracticeFormPage;
+import com.telran.pages.interactions.DragAndDropPage;
 import com.telran.pages.widgets.SelectMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -80,5 +81,13 @@ public class SidePanelPage extends BasePage{
     public PracticeFormPage selectPracticeForm() {
         click(practiceForm);
         return new PracticeFormPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Droppable']")
+    WebElement droppable;
+
+    public DragAndDropPage selectDroppable() {
+        clickWithJSExecutor(droppable,0,500);
+        return new DragAndDropPage(driver);
     }
 }
