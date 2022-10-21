@@ -14,6 +14,36 @@ public class PracticeFormPage extends BasePage {
         super(driver);
     }
 
+    public PracticeFormPage hideIframes() {
+        hideAd();
+        hideFooter();
+        return this;
+    }
+
+    @FindBy(id = "firstName")
+    WebElement fName;
+
+    @FindBy(id = "lastName")
+    WebElement lName;
+
+    @FindBy(id = "userEmail")
+    WebElement userEmail;
+
+    @FindBy(id = "userNumber")
+    WebElement userNumber;
+
+    @FindBy(id = "currentAddress")
+    WebElement currentAddress;
+
+    public PracticeFormPage enterPersonalData(String firstName, String lastName, String email, String telNum) {
+        type(fName,firstName);
+        type(lName,lastName);
+        type(userEmail,email);
+        typeWithJSExecutor(userNumber,telNum,0,100);
+
+        return this;
+    }
+
     @FindBy(xpath = "//label[@for='gender-radio-1']")
     WebElement male;
 
@@ -96,33 +126,8 @@ public class PracticeFormPage extends BasePage {
         return this;
     }
 
-    @FindBy(id = "firstName")
-    WebElement fName;
-
-    @FindBy(id = "lastName")
-    WebElement lName;
-
-    @FindBy(id = "userEmail")
-    WebElement userEmail;
-
-    @FindBy(id = "userNumber")
-    WebElement userNumber;
-
-    @FindBy(id = "currentAddress")
-    WebElement currentAddress;
-
-    public PracticeFormPage enterPersonalData(String firstName, String lastName, String email, String telNum, String address) {
-        type(fName,firstName);
-        type(lName,lastName);
-        type(userEmail,email);
-       typeWithJSExecutor(userNumber,telNum,0,100);
+    public PracticeFormPage addAddress(String address) {
         typeWithJSExecutor(currentAddress,address,0,300);
-        return this;
-    }
-
-    public PracticeFormPage hideIframes() {
-        hideAd();
-        hideFooter();
         return this;
     }
 
@@ -195,4 +200,5 @@ public class PracticeFormPage extends BasePage {
         driver.findElement(By.xpath("//div[@class='react-datepicker__week']//div[.='" + day + "']")).click();
         return this;
     }
+
 }

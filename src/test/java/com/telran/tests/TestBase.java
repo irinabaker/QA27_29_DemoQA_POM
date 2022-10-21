@@ -17,7 +17,7 @@ public class TestBase {
 
     public WebDriver driver;
 
-    Logger logger = LoggerFactory.getLogger(TestBase.class);
+//     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeMethod
     public void init() {
@@ -32,18 +32,18 @@ public class TestBase {
         driver.quit();
     }
 
-    @BeforeMethod
-    public void startTest(Method m, Object[] p) {
-        logger.info("Test start " + m.getName() + " with data: " + Arrays.asList(p));
-    }
-
-    @AfterMethod
-    public void stopTest(ITestResult result) {
-        if (result.isSuccess()) {
-            logger.info("PASSED: test method " + result.getMethod().getMethodName());
-        } else {
-            logger.error("FAILED: Test method " + result.getMethod().getMethodName());
-            new BasePage(driver).takeScreenshot();
-        }
-    }
+//    @BeforeMethod
+//    public void startTest(Method m, Object[] p) {
+//        logger.info("Test start " + m.getName() + " with data: " + Arrays.asList(p));
+//    }
+//
+//    @AfterMethod
+//    public void stopTest(ITestResult result) {
+//        if (result.isSuccess()) {
+//            logger.info("PASSED: test method " + result.getMethod().getMethodName());
+//        } else {
+//            logger.error("FAILED: Test method " + result.getMethod().getMethodName());
+//            new BasePage(driver).takeScreenshot();
+//        }
+//    }
 }

@@ -8,7 +8,9 @@ import com.telran.pages.bookstore.ProfilePage;
 import com.telran.pages.elements.ButtonsPage;
 import com.telran.pages.forms.PracticeFormPage;
 import com.telran.pages.interactions.DragAndDropPage;
+import com.telran.pages.widgets.MenuPage;
 import com.telran.pages.widgets.SelectMenuPage;
+import com.telran.pages.widgets.SliderPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -89,5 +91,21 @@ public class SidePanelPage extends BasePage{
     public DragAndDropPage selectDroppable() {
         clickWithJSExecutor(droppable,0,500);
         return new DragAndDropPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Menu']")
+    WebElement menu;
+
+    public MenuPage selectMenuItem() {
+        clickWithJSExecutor(menu,0,500);
+        return new MenuPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Slider']")
+    WebElement slider;
+
+    public SliderPage selectSlider() {
+        clickWithJSExecutor(slider,0,500);
+        return new SliderPage(driver);
     }
 }
