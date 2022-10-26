@@ -26,5 +26,6 @@ public class MenuTests extends TestBase {
     public void sliderTest() {
         new SidePanelPage(driver).selectSlider();
         new SliderPage(driver).moveSliderInHorizontalDirection();
+        Assert.assertTrue(new SliderPage(driver).isSliderValueDisplayed(60));
         }
 }

@@ -19,9 +19,6 @@ public class MenuPage extends BasePage {
     @FindBy(xpath = "//a[.='SUB SUB LIST »']")
     WebElement suSubList;
 
-    @FindBy(xpath = "//a[.='Sub Sub Item 1']")
-    WebElement subSubItem1;
-
     @FindBy(xpath = "//a[.='Sub Sub Item 2']")
     WebElement subSubItem2;
 
