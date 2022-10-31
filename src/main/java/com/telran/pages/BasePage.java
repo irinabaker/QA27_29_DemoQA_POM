@@ -1,12 +1,15 @@
 package com.telran.pages;
 
 import com.google.common.io.Files;
+import com.telran.pages.elements.BrokenLinksImages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class BasePage {
 
@@ -106,5 +109,22 @@ public class BasePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
         actions.moveByOffset(-offSetX,-offSetY).click().perform();
+    }
+
+    public void verifyLinks(String linkUrl) {
+        try {
+            URL url = new URL(linkUrl);
+            //create url connection and get status code
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
+            if(httpURLConnection.getResponseCode() >= 400) {
+                System.out.println(linkUrl + " - " + httpURLConnection.getResponseMessage() + " is a broken link");
+            } else {
+                System.out.println(linkUrl + " - " + httpURLConnection.getResponseMessage());
+            }
+        } catch (Exception e) {
+            System.out.println(linkUrl + " - " + e.getMessage() + " is a broken link");
+        }
     }
 }

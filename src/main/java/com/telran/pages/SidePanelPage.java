@@ -7,6 +7,7 @@ import com.telran.pages.alertsWindows.NestedFramesPage;
 import com.telran.pages.bookstore.ProfilePage;
 import com.telran.pages.elements.BrokenLinksImages;
 import com.telran.pages.elements.ButtonsPage;
+import com.telran.pages.elements.UploadAndDownloadPage;
 import com.telran.pages.forms.PracticeFormPage;
 import com.telran.pages.interactions.DragAndDropPage;
 import com.telran.pages.widgets.MenuPage;
@@ -124,5 +125,13 @@ public class SidePanelPage extends BasePage{
     public BrokenLinksImages selectBrokenLinksImages() {
         clickWithJSExecutor(brokenLinksImages,0,500);
         return new BrokenLinksImages(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Upload and Download']")
+    WebElement uploadAndDownload;
+
+    public UploadAndDownloadPage selectUploadAndDownload() {
+        clickWithJSExecutor(uploadAndDownload,0,500);
+        return new UploadAndDownloadPage(driver);
     }
 }
