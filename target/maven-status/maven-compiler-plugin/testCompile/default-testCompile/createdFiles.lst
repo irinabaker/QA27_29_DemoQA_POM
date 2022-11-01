@@ -1,0 +1,17 @@
+com\telran\tests\bookstore\LoginTests.class
+com\telran\tests\bookstore\SearchBookTests.class
+com\telran\tests\alertsWindows\FramesTests.class
+com\telran\tests\elements\BrokenLinksTests.class
+com\telran\tests\alertsWindows\WindowsTests.class
+com\telran\tests\alertsWindows\AlertTests.class
+com\telran\tests\interactions\DropDragTests.class
+com\telran\tests\alertsWindows\NestedFramesTests.class
+com\telran\tests\JSTests.class
+com\telran\tests\bookstore\AddBookTests.class
+com\telran\tests\widgets\MenuTests.class
+com\telran\tests\elements\ButtonsTests.class
+com\telran\tests\elements\TextBoxTests.class
+com\telran\tests\elements\UploadAndDownLoadTests.class
+com\telran\tests\widgets\SelectTests.class
+com\telran\tests\forms\PracticeFormTests.class
+com\telran\tests\TestBase.class

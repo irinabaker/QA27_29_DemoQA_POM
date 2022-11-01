@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [User]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="User(failed)" verbose="0">
+    <classes>
+      <class name="com.telran.tests.bookstore.LoginTests">
+        <parameter name="name" value="neuer"/>
+        <parameter name="password" value="Neuer1234!"/>
+        <methods>
+          <include name="init"/>
+          <include name="logOut"/>
+          <include name="tearDown"/>
+          <include name="loginPositiveTest"/>
+          <include name="ensurePrecondition"/>
+        </methods>
+      </class> <!-- com.telran.tests.bookstore.LoginTests -->
+    </classes>
+  </test> <!-- User(failed) -->
+</suite> <!-- Failed suite [User] -->
