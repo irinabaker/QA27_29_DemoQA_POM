@@ -25,7 +25,7 @@ public class AddBookTests extends TestBase {
     public void addBookToCollection() {
         new BookStorePage(driver).typeInSearchBookInput(BookData.BOOK_NAME)
                 .clickOnBookTitleLink().clickOnAddBookButton().acceptAlert();
-        new SidePanelPage(driver).selectProfile();
+        new SidePanelPage(driver).selectProfile().hideAd();
         Assert.assertTrue(new BookStorePage(driver).takeNameOfBook().contains("Git"));
     }
 
